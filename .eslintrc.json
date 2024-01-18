@@ -1,0 +1,29 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "rules": {
+        "quotes": ["error", "double"],
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-explicit-any": ["off"],
+        "no-underscore-dangle": "off",
+        "no-param-reassign": ["error"]
+    },
+    "env": {
+        "node": true
+    },
+    "globals": {
+        "after": true,
+        "afterEach": true,
+        "apiSender": true,
+        "assert": true,
+        "before": true,
+        "describe": true,
+        "fabricator": true,
+        "request": true,
+        "it": true,
+        "taskSender": true,
+        "COMMIT": true
+    }
+}
