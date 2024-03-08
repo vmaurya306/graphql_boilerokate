@@ -1,14 +1,14 @@
 export interface CreateUserInput {
     fullName?: string;
-    email: string; 
+    email: string;
     experience?: string;
     companyName?: string;
-  }
+}
 
-export interface UserDetail{
+export interface UserDetail {
     _id?: string;
     fullName: string;
-  email: string; 
-  experience: string;
-  companyName: string;
+    email: string;
+    experience: string;
+    companyName: string;
 }
