@@ -6,7 +6,7 @@
         "lib": ["es2020"],
         "target": "es2020",
         "module": "Node16",
-        "moduleResolution": "node",
+        "moduleResolution": "node16",
         "allowJs": true,
         "skipLibCheck": true,
         "esModuleInterop": true,

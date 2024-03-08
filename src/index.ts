@@ -28,7 +28,7 @@ const startServer = async () => {
     next();
   });
 
-  await connectToDatabase('mongodb://localhost:27017/graphql-boilerplate').then(() => {
+  await connectToDatabase("mongodb://bcoderAdmin:bcoderAdmin123@199.192.21.220:27017/graphql_db_ts?authSource=admin").then(() => {
    console.log("Database Connected")
   });
   

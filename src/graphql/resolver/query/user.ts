@@ -1,24 +1,25 @@
-import { User } from "../../../database/user";
+import { User } from '../../../database/user';
 
-export const usersQueryResolver = async (
-  _: any,
-  { search }: { search: string },
-) => {
-  const users = await User.find({
-    fullName: { $regex: new RegExp(search, 'i') },
-  })
-    .sort({ createdAt: -1 })
-    .exec();
+export const usersQueryResolver = async (_: any, { search }: { search: string }) => {
+    const users = await User.find({
+        fullName: { $regex: new RegExp(search, 'i') },
+    })
+        .sort({ createdAt: -1 })
+        .limit(10)
+        .skip(0);
 
-  const usersNodes = users.map(user => {
+    const count = await User.countDocuments({
+        fullName: { $regex: new RegExp(search, 'i') },
+    });
+    const usersNodes = users.map((user) => {
+        return {
+            node: user,
+            cursor: user._id,
+        };
+    });
+
     return {
-      node: user,
-      cursor: user._id,
+        totalCount: count,
+        edges: usersNodes,
     };
-  });
-
-  return {
-    totalCount: usersNodes.length,
-    edges: usersNodes,
-  };
 };
